@@ -1,3 +1,3 @@
-current_branch := $(shell git rev-parse --abbrev-ref HEAD)
+current_branch := 2.3.0
 build:
-	docker build -t bde2020/hive-metastore-postgresql:$(current_branch) ./
+	docker build -t hive-metastore-postgresql:$(current_branch) ./
