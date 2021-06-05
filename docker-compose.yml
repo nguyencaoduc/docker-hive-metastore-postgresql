@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  hive-metastore-postgresql:
+    image: hive-metastore-postgresql:${HIVE_METASTORE_TAG}
+    container_name: hive-metastore-postgresql
+    ports:
+      - "5432:5432"
+    environment:
+        - POSTGRES_HOST_AUTH_METHOD=trust
+    # Uncomment these lines to persist data on the local filesystem.
+        - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+        - ./.pgdata-${HIVE_METASTORE_TAG}:/var/lib/postgresql/data/pgdata      
